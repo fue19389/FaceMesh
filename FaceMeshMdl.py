@@ -3,6 +3,8 @@ import mediapipe as mp
 import time
 
 
+
+
 class FaceMeshDetector:
 
     def __init__(self, staticMode=False, maxFaces=2, refineLm=False, minDetectionCon=0.5, minTrackCon=0.5):
