@@ -19,8 +19,10 @@ x_train, x_test = fdat['x_train'], fdat['x_test']
 # y_train = np.load('y_train.npy')
 # y_test1 = np.load('y_test1.npy')
 # y_train1 = np.load('y_train1.npy')
-y_test2 = np.load('y_test2.npy')
-y_train2 = np.load('y_train2.npy')
+# y_test2 = np.load('y_test2.npy')
+# y_train2 = np.load('y_train2.npy')
+y_test3 = np.load('y_test3.npy')
+y_train3 = np.load('y_train3.npy')
 
 # 2046 de train
 # 744 de test
@@ -94,11 +96,17 @@ model.compile(optimizer='adam',
 #
 # _, actual_acc = model.evaluate(x_test, y_test1)
 
-# SET LABELS 2
-history = model.fit(x_train, y_train2, epochs=7)
-model.save(r'C:\Users\gerar\PycharmProjects\head_or2.keras')
+# # SET LABELS 2
+# history = model.fit(x_train, y_train2, epochs=7)
+# model.save(r'C:\Users\gerar\PycharmProjects\head_or2.keras')
+#
+# _, actual_acc = model.evaluate(x_test, y_test2)
 
-_, actual_acc = model.evaluate(x_test, y_test2)
+# SET LABELS 3
+history = model.fit(x_train, y_train3, epochs=7)
+model.save(r'C:\Users\gerar\PycharmProjects\head_or3.keras')
+
+_, actual_acc = model.evaluate(x_test, y_test3)
 
 # -----------------------------------------------------
 
@@ -125,7 +133,7 @@ print(prediction)
 # -----------------------------------------------------
 
 y_predicted_full = model.predict(x_test, verbose=2)
-prediction_labels = np.zeros_like(y_test2)
+prediction_labels = np.zeros_like(y_test3)
 for i in range(len(x_test)):
     prediction_labels[i] = np.argmax(y_predicted_full[i])
 
@@ -141,12 +149,15 @@ for i in range(len(x_test)):
 # # SET LABELS 1
 # y_test1 = np.squeeze(y_test1)
 
+# # SET LABELS 2
+# y_test2 = np.squeeze(y_test2)
+
 # SET LABELS 2
-y_test2 = np.squeeze(y_test2)
+y_test3 = np.squeeze(y_test3)
 
 prediction_labels = np.squeeze(prediction_labels)
 
-cm = tf.math.confusion_matrix(labels=y_test2, predictions=prediction_labels)
+cm = tf.math.confusion_matrix(labels=y_test3, predictions=prediction_labels)
 
 plt.figure(figsize=(10, 7))
 sn.heatmap(cm, annot=True, fmt='d')
