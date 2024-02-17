@@ -75,8 +75,8 @@ y_test3 = np.array(pd.read_excel(r"C:\Users\gerar\PycharmProjects\FaceMesh\facel
 # y_test1 = y_test1.astype(int)
 # y_train2 = y_train2.astype(int)
 # y_test2 = y_test2.astype(int)
-y_train3 = y_train3.astype(int)
-y_test3 = y_test3.astype(int)
+# y_train3 = y_train3.astype(int)
+# y_test3 = y_test3.astype(int)
 
 # np.savez(r'C:\Users\gerar\PycharmProjects\FACEDATA', x_train=x_train, x_test=x_test)
 np.save('y_train3', y_train3)
