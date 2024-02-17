@@ -103,7 +103,7 @@ model.compile(optimizer='adam',
 # _, actual_acc = model.evaluate(x_test, y_test2)
 
 # SET LABELS 3
-history = model.fit(x_train, y_train3, epochs=7)
+history = model.fit(x_train, y_train3, epochs=6)
 model.save(r'C:\Users\gerar\PycharmProjects\head_or3.keras')
 
 _, actual_acc = model.evaluate(x_test, y_test3)
