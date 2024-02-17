@@ -5,13 +5,13 @@ import time
 # Capture photo
 
 
-cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(0)
 
 # Capture webcam
-# cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 # HIGH RESOLUTION
-# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 384)
-# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 288)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 180)
 # lOW RESOLUTION
 # cap.set(cv2.CAP_PROP_FRAME_WIDTH, 720)
 # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 405)
@@ -60,4 +60,4 @@ while True:
     if key == 27: # 27= Esc
         break
 
-print(fpoints)
+print(img.shape)

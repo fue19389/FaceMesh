@@ -87,7 +87,7 @@ n_kernels = 16
 # definición de capas de la red
 
 layer1 = tf.keras.layers.Conv2D(n_kernels, (10, 10), activation='relu', input_shape=(28, 28, 1))
-layer2 = tf.keras.layers.MaxPooling2D((6, 6), strides=(6, 6))
+layer2 = tf.keras.layers.MaxPooling2D((6, 6), strides=(6, 6),)
 layer3 = tf.keras.layers.Dropout(0.5)
 layer4 = tf.keras.layers.Flatten()
 layer5 = tf.keras.layers.Dense(64, activation='relu')
@@ -130,7 +130,7 @@ pyplot.show()
 
 # predicción del modelo
 
-Example = XTrain[1, :, :, :];
+Example = XTrain[1, :, :, :]
 
 fig, axs = pyplot.subplots(1, 1)
 axs.imshow(np.squeeze(Example), cmap='gray')
