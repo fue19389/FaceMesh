@@ -13,9 +13,10 @@ import seaborn as sn
 
 fdat = np.load(r'C:\Users\gerar\PycharmProjects\FACEDATA.npz')
 
-x_train, y_train, x_test, y_test = fdat['x_train'], fdat['y_train'], \
-    fdat['x_test'], fdat['y_test']
+x_train, x_test = fdat['x_train'], fdat['x_test']
 
+# y_test = np.load('y_test.npy')
+# y_train = np.load('y_train.npy')
 # y_test1 = np.load('y_test1.npy')
 # y_train1 = np.load('y_train1.npy')
 y_test2 = np.load('y_test2.npy')
@@ -63,12 +64,12 @@ layer0 = tf.keras.layers.Conv2D(n_kernels, (3, 3), activation='relu', input_shap
 layer1 = tf.keras.layers.MaxPooling2D(2)
 layer2 = tf.keras.layers.Flatten()
 # layer3 = tf.keras.layers.Dropout(0.5)
-layer4 = tf.keras.layers.Dense(300, activation='relu')
-# layer5 = tf.keras.layers.Dense(50, activation='softmax')
-# layer6 = tf.keras.layers.Dense(100, activation='sigmoid')
+layer4 = tf.keras.layers.Dense(75, activation='relu')
+layer5 = tf.keras.layers.Dense(150, activation='relu')
+layer6 = tf.keras.layers.Dense(75, activation='relu')
 # layern = tf.keras.layers.Dense(100, activation='relu')
-layer7 = tf.keras.layers.Dense(9, activation='sigmoid')
-model = tf.keras.Sequential([layer0, layer1, layer2, layer4, layer7])
+layer7 = tf.keras.layers.Dense(6, activation='softmax')
+model = tf.keras.Sequential([layer0, layer1, layer2, layer4, layer5, layer7])
 # ------------------------------------------------------
 
 
@@ -83,19 +84,19 @@ model.compile(optimizer='adam',
               )
 # # SET LABELS 0
 # history = model.fit(x_train, y_train, epochs=7)
-# model.save('head_or0.keras')
+# model.save(r'C:\Users\gerar\PycharmProjects\head_or.keras')
 #
 # _, actual_acc = model.evaluate(x_test, y_test)
 
 # # SET LABELS 1
 # history = model.fit(x_train, y_train1, epochs=7)
-# model.save('head_or1.keras')
+# model.save(r'C:\Users\gerar\PycharmProjects\head_or1.keras')
 #
 # _, actual_acc = model.evaluate(x_test, y_test1)
 
 # SET LABELS 2
 history = model.fit(x_train, y_train2, epochs=7)
-model.save('head_or2.keras')
+model.save(r'C:\Users\gerar\PycharmProjects\head_or2.keras')
 
 _, actual_acc = model.evaluate(x_test, y_test2)
 
@@ -124,7 +125,7 @@ print(prediction)
 # -----------------------------------------------------
 
 y_predicted_full = model.predict(x_test, verbose=2)
-prediction_labels = np.zeros_like(y_test)
+prediction_labels = np.zeros_like(y_test2)
 for i in range(len(x_test)):
     prediction_labels[i] = np.argmax(y_predicted_full[i])
 
@@ -140,7 +141,7 @@ for i in range(len(x_test)):
 # # SET LABELS 1
 # y_test1 = np.squeeze(y_test1)
 
-# SET LABELS 1
+# SET LABELS 2
 y_test2 = np.squeeze(y_test2)
 
 prediction_labels = np.squeeze(prediction_labels)

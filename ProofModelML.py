@@ -14,7 +14,7 @@ import seaborn as sn
 # # SET LABELS 0
 # ho_model = tf.keras.models.load_model('head_or.keras')
 # SET LABELS 1
-ho_model = tf.keras.models.load_model('head_or1.keras')
+ho_model = tf.keras.models.load_model(r'C:\Users\gerar\PycharmProjects\head_or2.keras')
 
 # -----------------------------------------------------
 
@@ -58,4 +58,3 @@ while True:
     key = cv2.waitKey(30)
     if key == 27: # 27= Esc
         break
-print('hola')
