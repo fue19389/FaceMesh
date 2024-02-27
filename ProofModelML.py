@@ -42,7 +42,7 @@ while True:
 
     # Saving captured image and transforming from BGR TO RGB
 
-    success, img = cap.read()
+    _, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     # imgRGB = cv2.resize(imgRGB, (320, 180))
     imgRGB = imgRGB.astype(int)/255

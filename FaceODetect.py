@@ -108,6 +108,22 @@ model.save(r'C:\Users\gerar\PycharmProjects\head_or3.keras')
 
 _, actual_acc = model.evaluate(x_test, y_test3)
 
+# Se grafica la evolución de la pérdida durante el entrenamiento y la
+# validación
+plt.subplot(211)
+plt.title('Loss')
+plt.plot(history.history['loss'], label='train')
+plt.plot(history.history['val_loss'], label='test')
+plt.legend()
+# Se grafica la evolución de la exactitud durante el entrenamiento y la
+# validación
+plt.subplot(212)
+plt.title('Accuracy')
+plt.plot(history.history['accuracy'], label='train')
+plt.plot(history.history['val_accuracy'], label='test')
+plt.legend()
+plt.show()
+
 # -----------------------------------------------------
 
 # -----------------------------------------------------
