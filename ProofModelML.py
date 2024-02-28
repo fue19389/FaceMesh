@@ -1,3 +1,7 @@
+# ------------------------------------------------------
+# -----------------Librerías a utilizar-----------------
+# ------------------------------------------------------
+
 import cv2
 import os
 import tensorflow as tf
@@ -8,13 +12,27 @@ import numpy as np
 import seaborn as sn
 
 # ------------------------------------------------------
+# -----------------Selección de modelo------------------
+# ------------------------------------------------------
+
+# Actualmente, se tienen modelos del 0 -> 3
+n_model = 0
+
+# -----------------------------------------------------
+
+# ------------------------------------------------------
 # -------------------Cargar modelo---------------------
 # ------------------------------------------------------
 
-# # SET LABELS 0
-# ho_model = tf.keras.models.load_model('head_or.keras')
-# SET LABELS 1
-ho_model = tf.keras.models.load_model(r'C:\Users\gerar\PycharmProjects\head_or3.keras')
+if n_model == 0:
+    modeldir = r'C:\Users\gerar\PycharmProjects\head_or.keras'
+elif n_model == 1:
+    modeldir = r'C:\Users\gerar\PycharmProjects\head_or1.keras'
+elif n_model == 2:
+    modeldir = r'C:\Users\gerar\PycharmProjects\head_or2.keras'
+elif n_model == 3:
+    modeldir = r'C:\Users\gerar\PycharmProjects\head_or3.keras'
+ho_model = tf.keras.models.load_model(modeldir)
 
 # -----------------------------------------------------
 
